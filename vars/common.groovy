@@ -1,6 +1,7 @@
 def compile() {
   if (app_lang == "nodejs") {
     sh 'npm install'
+    sh 'env'
   }
 
   if (app_lang == "maven") {
@@ -12,11 +13,7 @@ def compile() {
 def unittests() {
 
   if (app_lang == "nodejs") {
-    try {
-      sh 'npm test'
-    } catch(Exception e) {
-      email("Unit tests failed")
-    }
+     sh 'npm test'
 
   }
 
@@ -30,5 +27,5 @@ def unittests() {
 }
 
 def email(email_note) {
-  println email_note
+  mail bcc: '', body: 'Job Failed : ', cc: '', from: 'radhika.b4329@gmail.com', replyTo: '', subject: 'TEST FROM JENKINS', to: 'radhika.b4329@gmail.com'
 }
