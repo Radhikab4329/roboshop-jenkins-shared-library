@@ -2,9 +2,8 @@ def call() {
   try {
     node('workstation') {
 
-      stage('Checkout') {
+      stage('CleanUP') {
         cleanws()
-        git branch: 'main', url: 'https://github.com/Radhikab4329/cart'
 
       }
 
