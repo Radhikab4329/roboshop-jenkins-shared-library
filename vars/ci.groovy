@@ -3,7 +3,7 @@ def call() {
     node('workstation') {
 
       stage('Checkout') {
-        cleanws()
+        cleanWs()
         git branch: 'main', url: 'https://github.com/Radhikab4329/cart'
 
       }
